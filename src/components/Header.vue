@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="header">
-        <span class="logo">DDD</span>
+        <span class="logo" @click="jump('/about')">DDD</span>
         <div class="nav">
             <span @click="jump('/')">首页</span>
             <span @click="jump('/team')">团队空间</span>
@@ -59,6 +59,7 @@ export default {
     color: #ce1b1b;
     letter-spacing:2px;
     position: absolute;
+    cursor: pointer;
 }
 .nav{
     width: 900px;
