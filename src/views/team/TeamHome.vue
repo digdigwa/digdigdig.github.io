@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     jump () {
-      this.$router.push({ path: '/teamManage' })
+      this.$router.push({ path: '/teamManage/info' })
     }
   }
 }

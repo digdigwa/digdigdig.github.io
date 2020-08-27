@@ -3,11 +3,13 @@
       <Header />
       <div class="body">
           <div class="nav">
-              <div>基本信息</div>
-              <div>团队成员</div>
-              <div>周刊发布</div>
+              <div @click="jump('/teamManage/info')">基本信息</div>
+              <div @click="jump('/teamManage/members')">团队成员</div>
+              <div @click="jump('/teamManage/publish')">周刊发布</div>
           </div>
-          <div></div>
+          <div class="content">
+            <router-view/>
+          </div>
       </div>
   </div>
 </template>
@@ -22,6 +24,13 @@ export default {
   },
   components: {
     Header
+  },
+  methods: {
+    jump (path) {
+      if (this.$route.path !== path) {
+        this.$router.push({ path })
+      }
+    }
   }
 }
 </script>
@@ -36,6 +45,7 @@ export default {
 }
 .nav{
     width: 200px;
+    margin-right: 15px;
     font-size: 14px;
     color: #666666;
 }
@@ -45,5 +55,8 @@ export default {
 }
 .nav>div:hover{
     background: #F0F5F3;
+}
+.content{
+  flex-grow: 1;
 }
 </style>

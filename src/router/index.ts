@@ -3,7 +3,10 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/home/Home.vue'
 import Team from '../views/team/TeamHome.vue'
 import TeamList from '../views/team/TeamList.vue'
-import TeamManage from '../views/team/TeamManage.vue'
+import TeamManage from '../views/teamManage/TeamManage.vue'
+import TeamManageInfo from '../views/teamManage/components/BaseInfo.vue'
+import TeamManageMembers from '../views/teamManage/components/Members.vue'
+import TeamManagePublish from '../views/teamManage/components/Publish.vue'
 import Article from '../views/article/WeeklyArticle.vue'
 
 Vue.use(VueRouter)
@@ -32,7 +35,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/teamManage',
     name: 'TeamManage',
-    component: TeamManage
+    component: TeamManage,
+    children: [
+      { path: 'info', component: TeamManageInfo },
+      { path: 'members', component: TeamManageMembers },
+      { path: 'publish', component: TeamManagePublish }
+    ]
   },
   {
     path: '/about',
