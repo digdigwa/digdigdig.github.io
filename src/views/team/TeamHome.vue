@@ -1,20 +1,17 @@
 <template>
-  <div>
-      <Header />
-      <div class="body">
-          <div class="title">
-            <span>家政前端技术</span>
-            <i class="el-icon-setting" title="团队管理" @click="jump"></i>
-          </div>
-          <div class="content">
-            <WeeklyCard v-for="info in list" :key="info"/>
-          </div>
+  <PageFrame>
+      <div class="title">
+        <span>家政前端技术</span>
+        <i class="el-icon-setting" title="团队管理" @click="jump"></i>
       </div>
-  </div>
+      <div class="content">
+        <WeeklyCard v-for="info in list" :key="info"/>
+      </div>
+  </PageFrame>
 </template>
 
 <script>
-import Header from '../../components/Header'
+import PageFrame from '../../components/PageFrame'
 import WeeklyCard from './components/WeeklyCard'
 export default {
   data () {
@@ -23,7 +20,7 @@ export default {
     }
   },
   components: {
-    Header,
+    PageFrame,
     WeeklyCard
   },
   methods: {
@@ -35,10 +32,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.body{
-    width: 900px;
-    margin: 0 auto;
-}
 .title{
   margin: 15px 0;
   padding-bottom: 10px;

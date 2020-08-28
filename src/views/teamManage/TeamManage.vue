@@ -1,6 +1,5 @@
 <template>
-  <div>
-      <Header />
+  <PageFrame>
       <div class="body">
           <div class="nav">
               <div @click="jump('/teamManage/info')">基本信息</div>
@@ -11,11 +10,11 @@
             <router-view/>
           </div>
       </div>
-  </div>
+  </PageFrame>
 </template>
 
 <script>
-import Header from '../../components/Header'
+import PageFrame from '../../components/PageFrame'
 export default {
   data () {
     return {
@@ -23,7 +22,7 @@ export default {
     }
   },
   components: {
-    Header
+    PageFrame
   },
   methods: {
     jump (path) {
@@ -37,8 +36,6 @@ export default {
 
 <style scoped lang="scss">
 .body{
-    width: 900px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     padding: 20px 0;

@@ -1,14 +1,13 @@
 <template>
-  <div>
-      <Header />
+  <PageFrame>
       <div class="body">
           <TeamCard v-for="info in list" :key="info"/>
       </div>
-  </div>
+  </PageFrame>
 </template>
 
 <script>
-import Header from '../../components/Header'
+import PageFrame from '../../components/PageFrame'
 import TeamCard from './components/TeamCard'
 export default {
   data () {
@@ -17,7 +16,7 @@ export default {
     }
   },
   components: {
-    Header,
+    PageFrame,
     TeamCard
   }
 }
@@ -25,9 +24,8 @@ export default {
 
 <style scoped lang="scss">
 .body{
-    width: 900px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 </style>

@@ -1,16 +1,15 @@
 <template>
-  <div>
-      <Header />
-      <Main />
-  </div>
+  <PageFrame>
+    <Main />
+  </PageFrame>
 </template>
 
 <script>
-import Header from '../../components/Header'
+import PageFrame from '../../components/PageFrame.vue'
 import Main from './components/Main'
 export default {
   components: {
-    Header,
+    PageFrame,
     Main
   }
 }

@@ -20,8 +20,6 @@ export default {
 
 <style scoped lang="scss">
 .main{
-    margin: 0 auto;
-    width: 900px;
     padding-bottom: 30px;
 }
 </style>

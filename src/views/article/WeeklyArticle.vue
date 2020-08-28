@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <Header/>
+  <PageFrame>
     <div class="body">
       <div class="title">家政前端技术周刊 - 第18期</div>
       <div class="author">Shadow 发布于 2020/06/11</div>
       <ArticleCard v-for="info in list" :key="info"/>
     </div>
-  </div>
+  </PageFrame>
 </template>
 
 <script>
-import Header from '../../components/Header'
-// import Header from '../../components/Header'
+import PageFrame from '../../components/PageFrame.vue'
 import ArticleCard from '../../components/ArticleCard'
 export default {
   data () {
@@ -20,7 +18,7 @@ export default {
     }
   },
   components: {
-    Header,
+    PageFrame,
     ArticleCard
   }
 }
@@ -28,8 +26,6 @@ export default {
 
 <style scoped lang='scss'>
 .body{
-  width: 900px;
-  margin: 0 auto;
   padding-top: 20px;
 }
 .title{
