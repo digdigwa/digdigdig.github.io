@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/home/Home.vue'
+import Login from '../views/login/Login.vue'
 import Team from '../views/team/TeamHome.vue'
 import TeamList from '../views/team/TeamList.vue'
 import TeamManage from '../views/teamManage/TeamManage.vue'
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: '/team',
     name: 'Team',
     component: Team
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/article',

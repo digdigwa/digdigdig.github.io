@@ -3,12 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Dialog, Button, Form, FormItem, Input } from 'element-ui'
+import { Dialog, Button, Form, FormItem, Input, Card, Tabs, TabPane } from 'element-ui'
 Vue.use(Dialog)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
+Vue.use(Card)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 Vue.config.productionTip = false
 

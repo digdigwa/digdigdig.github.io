@@ -8,7 +8,7 @@
             <span @click="jump('/teamList')">其他团队</span>
         </div>
         <div class="operate">
-            <span class="login" @click="login">登录</span>
+            <span class="login" @click="jump('/login')">登录</span>
             <span class="recommend" @click="recommed">推荐</span>
         </div>
     </div>
@@ -33,9 +33,6 @@ export default {
       if (this.$route.path !== path) {
         this.$router.push({ path })
       }
-    },
-    login () {
-      console.log(1)
     },
     recommed () {
       this.recommedShow = true
