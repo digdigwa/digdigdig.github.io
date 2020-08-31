@@ -1,5 +1,5 @@
 <template>
-  <PageFrame>
+  <div>
       <div class="title">
         <span>家政前端技术</span>
         <i class="el-icon-setting" title="团队管理" @click="jump"></i>
@@ -7,11 +7,10 @@
       <div class="content">
         <WeeklyCard v-for="info in list" :key="info"/>
       </div>
-  </PageFrame>
+  </div>
 </template>
 
 <script>
-import PageFrame from '../../components/PageFrame'
 import WeeklyCard from './components/WeeklyCard'
 export default {
   data () {
@@ -20,7 +19,6 @@ export default {
     }
   },
   components: {
-    PageFrame,
     WeeklyCard
   },
   methods: {

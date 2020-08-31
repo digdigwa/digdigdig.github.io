@@ -1,9 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <PageFrame>
+      <router-view/>
+    </PageFrame>
   </div>
 </template>
 
+<script>
+import PageFrame from './components/PageFrame'
+export default {
+  components: {
+    PageFrame
+  }
+}
+</script>>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

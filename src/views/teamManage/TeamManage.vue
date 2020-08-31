@@ -1,20 +1,17 @@
 <template>
-  <PageFrame>
-      <div class="body">
-          <div class="nav">
-              <div @click="jump('/teamManage/info')">基本信息</div>
-              <div @click="jump('/teamManage/members')">团队成员</div>
-              <div @click="jump('/teamManage/publish')">周刊发布</div>
-          </div>
-          <div class="content">
-            <router-view/>
-          </div>
+  <div class="body">
+      <div class="nav">
+          <div @click="jump('/teamManage/info')">基本信息</div>
+          <div @click="jump('/teamManage/members')">团队成员</div>
+          <div @click="jump('/teamManage/publish')">周刊发布</div>
       </div>
-  </PageFrame>
+      <div class="content">
+        <router-view/>
+      </div>
+  </div>
 </template>
 
 <script>
-import PageFrame from '../../components/PageFrame'
 export default {
   data () {
     return {
@@ -22,7 +19,6 @@ export default {
     }
   },
   components: {
-    PageFrame
   },
   methods: {
     jump (path) {

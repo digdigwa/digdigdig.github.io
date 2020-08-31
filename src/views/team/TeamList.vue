@@ -1,13 +1,10 @@
 <template>
-  <PageFrame>
-      <div class="body">
-          <TeamCard v-for="info in list" :key="info"/>
-      </div>
-  </PageFrame>
+  <div class="body">
+      <TeamCard v-for="info in list" :key="info"/>
+  </div>
 </template>
 
 <script>
-import PageFrame from '../../components/PageFrame'
 import TeamCard from './components/TeamCard'
 export default {
   data () {
@@ -16,7 +13,6 @@ export default {
     }
   },
   components: {
-    PageFrame,
     TeamCard
   }
 }

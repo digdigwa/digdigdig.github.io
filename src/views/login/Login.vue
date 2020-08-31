@@ -1,18 +1,15 @@
 <template>
-  <PageFrame>
-      <div class="container">
-          <el-card class="main">
-              <el-tabs v-model="active" @tab-click="handleClick">
-                <el-tab-pane label="登录" name="login"><SignIn /></el-tab-pane>
-                <el-tab-pane label="注册" name="register"><SignUp @onSuccess="registerSuccess"/></el-tab-pane>
-            </el-tabs>
-          </el-card>
-      </div>
-  </PageFrame>
+  <div class="container">
+      <el-card class="main">
+          <el-tabs v-model="active" @tab-click="handleClick">
+            <el-tab-pane label="登录" name="login"><SignIn /></el-tab-pane>
+            <el-tab-pane label="注册" name="register"><SignUp @onSuccess="registerSuccess"/></el-tab-pane>
+        </el-tabs>
+      </el-card>
+  </div>
 </template>
 
 <script>
-import PageFrame from '../../components/PageFrame.vue'
 import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 export default {
@@ -22,7 +19,6 @@ export default {
     }
   },
   components: {
-    PageFrame,
     SignIn,
     SignUp
   },
