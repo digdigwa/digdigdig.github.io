@@ -1,11 +1,11 @@
 <template>
   <div>
-      <el-form ref="form" :model="form" class="form">
-        <el-form-item>
-            <el-input v-model="form.name" maxlength="12" show-word-limit prefix-icon="el-icon-user" placeholder="用户名"></el-input>
+      <el-form ref="loginForm" :model="form" class="form" :rules="rules">
+        <el-form-item prop="userName">
+            <el-input v-model="form.userName" maxlength="12" show-word-limit prefix-icon="el-icon-user" placeholder="用户名"></el-input>
         </el-form-item>
-        <el-form-item>
-            <el-input v-model="form.name" maxlength="12" show-word-limit prefix-icon="el-icon-unlock" placeholder="密码"></el-input>
+        <el-form-item prop="password">
+            <el-input v-model="form.password" maxlength="12" show-word-limit prefix-icon="el-icon-unlock" placeholder="密码"></el-input>
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="onSubmit" round class="btn">登录</el-button>
@@ -15,23 +15,35 @@
 </template>
 
 <script>
-const ON_CLOSE = 'onClose'
+import { login } from '../../../service/login'
 export default {
   data () {
     return {
       dialogVisible: true,
       form: {
-        name: '',
-        desc: ''
+        userName: '',
+        password: ''
+      },
+      rules: {
+        userName: [{ required: true, message: '请输用户名', trigger: 'blur' }],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 12, message: '长度在 6 到 12 个字符', trigger: 'blur' }
+        ]
       }
     }
   },
   methods: {
     onSubmit () {
-      this.$emit(ON_CLOSE)
-    },
-    onCancel () {
-      this.$emit(ON_CLOSE)
+      this.$refs.loginForm.validate(async (valid) => {
+        if (valid) {
+          const res = await login(this.form)
+          if (res) {
+            this.$refs.loginForm.resetFields()
+            window.location.href = location.origin
+          }
+        }
+      })
     }
   }
 }

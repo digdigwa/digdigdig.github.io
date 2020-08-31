@@ -4,7 +4,7 @@
           <el-card class="main">
               <el-tabs v-model="active" @tab-click="handleClick">
                 <el-tab-pane label="登录" name="login"><SignIn /></el-tab-pane>
-                <el-tab-pane label="注册" name="register"><SignUp /></el-tab-pane>
+                <el-tab-pane label="注册" name="register"><SignUp @onSuccess="registerSuccess"/></el-tab-pane>
             </el-tabs>
           </el-card>
       </div>
@@ -29,6 +29,9 @@ export default {
   methods: {
     handleClick (tab, event) {
       console.log(tab, event)
+    },
+    registerSuccess () {
+      this.active = 'login'
     }
   }
 }

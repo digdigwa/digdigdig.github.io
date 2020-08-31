@@ -21,3 +21,5 @@ pnpm-debug.log*
 *.sw?
 CNAME
 _config.yml
+docs/CNAME
+docs/_config.yml
