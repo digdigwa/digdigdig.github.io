@@ -23,7 +23,7 @@ export default {
   methods: {
     jump (path) {
       if (this.$route.path !== path) {
-        this.$router.push({ path })
+        this.$router.push({ path, query: { teamId: this.$route.query.teamId } })
       }
     }
   }

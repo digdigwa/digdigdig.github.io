@@ -2,7 +2,7 @@
   <div>
       <div class="title">
         <span>家政前端技术</span>
-        <i class="el-icon-setting" title="团队管理" @click="jump"></i>
+        <!-- <i class="el-icon-setting" title="团队管理" @click="jump"></i> -->
       </div>
       <div class="content">
         <WeeklyCard v-for="info in list" :key="info"/>
@@ -22,9 +22,9 @@ export default {
     WeeklyCard
   },
   methods: {
-    jump () {
-      this.$router.push({ path: '/teamManage/info' })
-    }
+    // jump () {
+    //   this.$router.push({ path: '/teamManage/info' })
+    // }
   }
 }
 </script>
@@ -37,12 +37,12 @@ export default {
   font-weight: 700;
   text-align: center;
   border-bottom: 1px solid #f0f0f0;
-  i{
-    margin-left: 10px;
-    font-size: 18px;
-    color:#ea6f5a;
-    cursor: pointer;
-  }
+  // i{
+  //   margin-left: 10px;
+  //   font-size: 18px;
+  //   color:#ea6f5a;
+  //   cursor: pointer;
+  // }
 }
 .content{
   display: flex;

@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Dialog, Button, Form, FormItem, Input, Card, Tabs, TabPane, Message } from 'element-ui'
+import { Dialog, Button, Form, FormItem, Input, Card, Tabs, TabPane, Message, MessageBox } from 'element-ui'
 Vue.use(Dialog)
 Vue.use(Button)
 Vue.use(Form)
@@ -13,6 +13,10 @@ Vue.use(Card)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.prototype.$message = Message
+// Vue.prototype.$msgbox = MessageBox
+// Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+// Vue.prototype.$prompt = MessageBox.prompt
 
 Vue.config.productionTip = false
 

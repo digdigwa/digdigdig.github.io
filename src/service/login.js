@@ -1,13 +1,6 @@
-import Vue from 'vue'
+import { handleResult } from './result'
 import http from './http'
 import * as API from './api.js'
-
-const handleResult = ({ status, data, message, tip = true }) => {
-  if (status !== 0 && message && tip) {
-    Vue.prototype.$message.error(message)
-  }
-  return data
-}
 
 // 检查用户名是否已被注册
 export async function checkUserName (userName) {

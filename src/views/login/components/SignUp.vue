@@ -2,7 +2,7 @@
   <div>
       <el-form ref="signInForm" :model="form" class="form" :rules="rules">
         <el-form-item prop='nickName'>
-            <el-input v-model="form.nickName" maxlength="12" show-word-limit prefix-icon="el-icon-s-custom" placeholder="昵称"></el-input>
+            <el-input v-model="form.nickName" maxlength="10" show-word-limit prefix-icon="el-icon-s-custom" placeholder="昵称"></el-input>
         </el-form-item>
         <el-form-item prop='userName'>
             <el-input v-model="form.userName" maxlength="12" show-word-limit prefix-icon="el-icon-user" placeholder="用户名"></el-input>

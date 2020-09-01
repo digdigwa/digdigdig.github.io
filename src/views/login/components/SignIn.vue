@@ -5,7 +5,7 @@
             <el-input v-model="form.userName" maxlength="12" show-word-limit prefix-icon="el-icon-user" placeholder="用户名"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-            <el-input v-model="form.password" maxlength="12" show-word-limit prefix-icon="el-icon-unlock" placeholder="密码"></el-input>
+            <el-input v-model="form.password" type="password" maxlength="12" show-word-limit prefix-icon="el-icon-unlock" placeholder="密码"></el-input>
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="onSubmit" round class="btn">登录</el-button>
