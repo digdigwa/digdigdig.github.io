@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div class="title">
-      <div>团队成员</div>
+    <Title title="团队成员">
       <div><el-button type="primary" @click="onAdd" size='small' round>添加</el-button></div>
-    </div>
+    </Title>
     <div class="menbers">
       <div v-for="member in memberList" :key="member.id">
         <div>{{`${member.userName} - ${member.nickName}`}}</div>
@@ -15,6 +14,7 @@
 </template>
 
 <script>
+import Title from '../../../components/TabContentTitle'
 import { getMembers, deleteMember } from '../../../service/team'
 import AddMemberDialog from './AddMemberDialog.vue'
 export default {
@@ -25,6 +25,7 @@ export default {
     }
   },
   components: {
+    Title,
     AddMemberDialog
   },
   async created () {
@@ -65,12 +66,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title{
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content:space-between;
-}
 .menbers>div{
   padding: 15px 10px;
   border-bottom: 1px solid #f0f0f0;

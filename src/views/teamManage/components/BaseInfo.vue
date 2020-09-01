@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Title from './Title.vue'
+import Title from '../../../components/TabContentTitle'
 import { getTeamInfo, modifyTeamInfo } from '../../../service/team'
 
 export default {
