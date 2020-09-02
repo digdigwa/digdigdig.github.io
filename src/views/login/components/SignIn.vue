@@ -16,6 +16,7 @@
 
 <script>
 import { login } from '../../../service/login'
+import cookie from '../../../utils/cookie'
 export default {
   data () {
     return {
@@ -39,6 +40,8 @@ export default {
         if (valid) {
           const res = await login(this.form)
           if (res) {
+            cookie.set('d_token', res.token, { domain: 'digdigdig.vip' })
+            cookie.set('d_id', res.id, { domain: 'digdigdig.vip' })
             this.$refs.loginForm.resetFields()
             window.location.href = location.origin
           }

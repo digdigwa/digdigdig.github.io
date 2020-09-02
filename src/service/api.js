@@ -1,6 +1,7 @@
 
 // const base = '/node/i'
 const base = 'http://zhuhao.ink/node/i'
+// const base = 'http://local.djtest.cn:10001/node/i'
 
 // 登录注册相关
 export const CHECK_NICK_NAME = base + '/checkNickName'
