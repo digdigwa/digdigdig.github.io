@@ -1,17 +1,18 @@
 <template>
-  <div class="card" @click="jump">
-      <img src="http://muchstudy.com/2020/04/19/%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B%E8%81%8A%E8%81%8A%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/%E4%BB%A5%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B%E8%81%8A%E8%81%8A%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1.jpg">
+  <div class="card" @click="jump(team.teamId)">
+      <img :src="team.coverUrl">
       <div class="content">
-          <div class="title">家政前端技术</div>
+          <div class="title">{{ team.teamName}}</div>
       </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['team'],
   methods: {
-    jump () {
-      this.$router.push({ path: '/team' })
+    jump (teamId) {
+      this.$router.push({ path: '/team', query: { teamId } })
     }
   }
 }

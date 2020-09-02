@@ -5,31 +5,40 @@
       <div><el-button type="primary" @click="onPublish" size='small' round>发布</el-button></div>
     </div>
     <div>
-      <ArticleCard v-for="info in list" :key="info"/>
+      <ArticleCard v-for="doc in list" :key="doc.docId" :doc="doc"/>
+      <div class="empty" v-if="list.length===0">没有待发布内容</div>
     </div>
     <PublishDialog v-if="dialogShow" @onClose="onDialogClose"/>
   </div>
 </template>
 
 <script>
+import { getNoPublishDocsByTeamId } from '../../../service/doc'
 import PublishDialog from './PublishDialog.vue'
 import ArticleCard from '../../../components/ArticleCard'
 export default {
   data () {
     return {
       dialogShow: false,
-      list: [1, 2, 3, 4, 5]
+      list: []
     }
   },
   components: {
     PublishDialog,
     ArticleCard
   },
+  async created () {
+    this.getData()
+  },
   methods: {
+    async getData () {
+      this.list = await getNoPublishDocsByTeamId(this.$route.query.teamId)
+    },
     onPublish () {
       this.dialogShow = true
     },
     onDialogClose () {
+      this.getData()
       this.dialogShow = false
     }
   }
@@ -45,5 +54,11 @@ export default {
 }
 .actions{
   margin-top: 20px;
+}
+.empty{
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  color:#cac3c3;
 }
 </style>

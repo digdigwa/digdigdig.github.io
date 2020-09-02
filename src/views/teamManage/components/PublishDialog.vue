@@ -6,12 +6,12 @@
             width="50%"
             :before-close="onCancel">
 
-            <el-form ref="form" :model="form" label-width="80px" size='small'>
-                <el-form-item label="标题">
-                    <el-input v-model="form.name" maxlength="100" show-word-limit></el-input>
+            <el-form ref="form" :model="form" label-width="80px" size='small' :rules="rules">
+                <el-form-item label="标题" prop="weeklyTitle">
+                    <el-input v-model="form.weeklyTitle" maxlength="100" show-word-limit placeholder="xxx技术周刊 第xxx期"></el-input>
                 </el-form-item>
-                <el-form-item label="封面地址">
-                    <el-input v-model="form.name" maxlength="250" show-word-limit></el-input>
+                <el-form-item label="封面地址" prop="coverUrl">
+                    <el-input v-model="form.coverUrl" maxlength="500" show-word-limit placeholder="请填写封面图链接"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="onSubmit">确定</el-button>
@@ -23,20 +23,33 @@
 </template>
 
 <script>
+import { createWeekly } from '../../../service/weekly'
 const ON_CLOSE = 'onClose'
 export default {
   data () {
     return {
       dialogVisible: true,
       form: {
-        name: '',
-        desc: ''
+        weeklyTitle: '',
+        coverUrl: ''
+      },
+      rules: {
+        weeklyTitle: [{ required: true, message: '标题不能为空', trigger: 'blur' }],
+        coverUrl: [{ required: true, message: '封面图链接不能为空', trigger: 'blur' }]
       }
     }
   },
   methods: {
     onSubmit () {
-      this.$emit(ON_CLOSE)
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+          const res = await createWeekly(Object.assign({ teamId: this.$route.query.teamId }, this.form))
+          if (res) {
+            this.$message.success('发布成功')
+            this.$emit(ON_CLOSE)
+          }
+        }
+      })
     },
     onCancel () {
       this.$emit(ON_CLOSE)

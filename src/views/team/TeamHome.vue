@@ -5,21 +5,25 @@
         <!-- <i class="el-icon-setting" title="团队管理" @click="jump"></i> -->
       </div>
       <div class="content">
-        <WeeklyCard v-for="info in list" :key="info"/>
+        <WeeklyCard v-for="item in list" :key="item.weeklyId" :weekly="item"/>
       </div>
   </div>
 </template>
 
 <script>
+import { getWeeklyByTeamId } from '../../service/weekly'
 import WeeklyCard from './components/WeeklyCard'
 export default {
   data () {
     return {
-      list: [1, 2, 3, 4, 5, 6, 7, 17, 8, 9]
+      list: []
     }
   },
   components: {
     WeeklyCard
+  },
+  async created () {
+    this.list = await getWeeklyByTeamId(this.$route.query.teamId)
   },
   methods: {
     // jump () {

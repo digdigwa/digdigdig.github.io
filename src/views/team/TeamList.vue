@@ -1,19 +1,24 @@
 <template>
   <div class="body">
-      <TeamCard v-for="info in list" :key="info"/>
+      <TeamCard v-for="team in list" :key="team.teamId" :team="team"/>
   </div>
 </template>
 
 <script>
+import { getAllTeams } from '../../service/team'
+
 import TeamCard from './components/TeamCard'
 export default {
   data () {
     return {
-      list: [1, 2, 3, 4, 5]
+      list: []
     }
   },
   components: {
     TeamCard
+  },
+  async created () {
+    this.list = await getAllTeams()
   }
 }
 </script>

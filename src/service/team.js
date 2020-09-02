@@ -29,8 +29,11 @@ export async function getMembers (teamId) {
 }
 // 删除团队成员
 export async function deleteMember (id) {
-  console.log(API.DELETE_MEMBER)
-  debugger
   const { status, data, message } = await http({ url: API.DELETE_MEMBER, param: { id }, method: 'get' })
+  return handleResult({ status, data, message })
+}
+// 获取所有团队列表
+export async function getAllTeams () {
+  const { status, data, message } = await http({ url: API.GET_ALL_TEAMS, method: 'get' })
   return handleResult({ status, data, message })
 }

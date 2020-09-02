@@ -2,20 +2,24 @@
   <div class="body">
     <div class="title">家政前端技术周刊 - 第18期</div>
     <div class="author">Shadow 发布于 2020/06/11</div>
-    <ArticleCard v-for="info in list" :key="info"/>
+    <ArticleCard v-for="item in list" :key="item.docId" :doc="item"/>
   </div>
 </template>
 
 <script>
+import { getDocsByWeeklyId } from '../../service/doc'
 import ArticleCard from '../../components/ArticleCard'
 export default {
   data () {
     return {
-      list: [1, 2, 3, 4, 5, 6, 7, 17, 8, 9]
+      list: []
     }
   },
   components: {
     ArticleCard
+  },
+  async created () {
+    this.list = await getDocsByWeeklyId(this.$route.query.weeklyId)
   }
 }
 </script>

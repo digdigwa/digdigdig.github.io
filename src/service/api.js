@@ -1,4 +1,6 @@
-const base = '/node/i'
+
+// const base = '/node/i'
+const base = 'http://zhuhao.ink/node/i'
 
 // 登录注册相关
 export const CHECK_NICK_NAME = base + '/checkNickName'
@@ -13,7 +15,18 @@ export const MODIFY_USER_INFO = base + '/modifyUserInfo'
 export const GET_MY_JOIN_TEAMS = base + '/getMyJoinTeams'
 export const GET_TEAM_INFO = base + '/getTeamInfo'
 export const MODIFY_TEAM_INFO = base + '/modifyTeamInfo'
+export const GET_ALL_TEAMS = base + '/getAllTeams'
 // 团队成员
 export const ADD_TEAM_MEMBER = base + '/addTeamMember'
 export const GET_MEMBERS = base + '/getMembers'
 export const DELETE_MEMBER = base + '/deleteMember'
+// 标签相关
+export const GET_ALL_TAGS = base + '/getAllTags'
+// 文章相关
+export const CREATE_DOC = base + '/createDoc'
+export const GET_NO_PUBLISH_DOCS = base + '/getNoPublishDocsByTeamId'
+export const GET_DOCS_FOR_PAGE = base + '/getDocsForPage'
+export const GET_WEEKLY_DOCS = base + '/getDocsByWeeklyId'
+// 周刊相关
+export const CREATE_WEEKLY = base + '/createWeekly'
+export const GET_WEEKLY_LIST = base + '/getWeeklyByTeamId'

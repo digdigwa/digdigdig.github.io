@@ -1,19 +1,26 @@
 <template>
   <div class="card">
-      <div class="title" @click="jump">游戏科学新作《黑神话：悟空》13分钟实机演示</div>
-      <div class="abstract">国产单机游戏的高峰，还未正式发布即爆款！~</div>
+      <div class="title" @click="jump(doc.sourceUrl)">{{ doc.title }}</div>
+      <div class="abstract">{{ doc.reason }}~</div>
       <div class="footer">
-          <span>shadow</span>
-          <span>2020-09-11</span>
+          <span>{{ doc.nickName}}</span>
+          <span>{{getDate}}</span>
       </div>
   </div>
 </template>
 
 <script>
+import { dateFormat } from '../utils/tools'
 export default {
+  props: ['doc'],
   methods: {
-    jump () {
-      window.open('https://www.bilibili.com/video/BV1x54y1e7zf?from=search&seid=8792404065808697240')
+    jump (url) {
+      window.open(url)
+    }
+  },
+  computed: {
+    getDate () {
+      return dateFormat('yyyy-MM-dd hh:mm:ss', new Date(this.doc.createTime))
     }
   }
 }

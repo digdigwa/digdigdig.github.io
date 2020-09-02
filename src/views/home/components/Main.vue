@@ -1,19 +1,40 @@
 <template>
   <div class="main">
-      <ArticleCard v-for="info in list" :key="info"/>
+      <ArticleCard v-for="doc in list" :key="doc.docId" :doc="doc"/>
+      <div class="more" v-if="loadMore" @click="onLoadMore">加载更多</div>
   </div>
 </template>
 
 <script>
+import { getDocsForPage } from '../../../service/doc'
 import ArticleCard from '../../../components/ArticleCard'
 export default {
   data () {
     return {
-      list: [1, 2, 3, 4, 5, 6, 7, 17, 8, 9]
+      curPage: 1,
+      pageSize: 10,
+      loadMore: true,
+      list: []
     }
   },
   components: {
     ArticleCard
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+    async getData () {
+      const res = await getDocsForPage({ curPage: this.curPage, pageSize: this.pageSize })
+      this.list = this.list.concat(res)
+      if (res.length < this.pageSize) {
+        this.loadMore = false
+      }
+    },
+    onLoadMore () {
+      this.curPage = this.curPage + 1
+      this.getData()
+    }
   }
 }
 </script>
@@ -21,5 +42,11 @@ export default {
 <style scoped lang="scss">
 .main{
     padding-bottom: 30px;
+}
+.more{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
 }
 </style>
