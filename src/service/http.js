@@ -83,7 +83,9 @@ async function http ({ url, param, method = 'POST', isCodeAutoHandle = false, co
   }
   const headers = customHeaders || {
     // 'Content-Type': contentType || 'application/x-www-form-urlencoded'
-    'Content-Type': contentType || 'application/json'
+    'Content-Type': contentType || 'application/json',
+    'd-token': sessionStorage.getItem('dToken') || '',
+    'd-id': sessionStorage.getItem('dId') || ''
   }
   const options = Object.assign({
     headers,

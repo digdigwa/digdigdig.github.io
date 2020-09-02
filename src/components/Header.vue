@@ -22,7 +22,7 @@
 <script>
 import Recommend from './Recommend'
 import avatar from '../utils/multiavatar'
-import cookie from '../utils/cookie'
+// import cookie from '../utils/cookie'
 
 export default {
   data () {
@@ -35,7 +35,8 @@ export default {
     Recommend
   },
   mounted () {
-    this.uuid = cookie.get('d_id')
+    // this.uuid = cookie.get('d_id')
+    this.uuid = sessionStorage.getItem('dId')
     if (this.uuid) {
       this.$nextTick(function () {
         const iSVG = avatar.multiavatar(this.uuid)

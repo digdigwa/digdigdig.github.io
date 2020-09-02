@@ -16,7 +16,7 @@
 
 <script>
 import { login } from '../../../service/login'
-import cookie from '../../../utils/cookie'
+// import cookie from '../../../utils/cookie'
 export default {
   data () {
     return {
@@ -40,10 +40,10 @@ export default {
         if (valid) {
           const res = await login(this.form)
           if (res) {
-            cookie.set('d_token', res.token, { domain: 'digdigdig.vip' })
-            cookie.set('d_id', res.id, { domain: 'digdigdig.vip' })
-            cookie.set('d_token', res.token, { domain: 'zhuhao.ink' })
-            cookie.set('d_id', res.id, { domain: 'zhuhao.ink' })
+            // cookie.set('d_token', res.token, { domain: 'digdigdig.vip' })
+            // cookie.set('d_id', res.id, { domain: 'digdigdig.vip' })
+            sessionStorage.setItem('dToken', res.token)
+            sessionStorage.setItem('dId', res.id)
             this.$refs.loginForm.resetFields()
             window.location.href = location.origin
           }
