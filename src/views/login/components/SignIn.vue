@@ -42,6 +42,8 @@ export default {
           if (res) {
             cookie.set('d_token', res.token, { domain: 'digdigdig.vip' })
             cookie.set('d_id', res.id, { domain: 'digdigdig.vip' })
+            cookie.set('d_token', res.token, { domain: 'zhuhao.ink' })
+            cookie.set('d_id', res.id, { domain: 'zhuhao.ink' })
             this.$refs.loginForm.resetFields()
             window.location.href = location.origin
           }
