@@ -5,7 +5,7 @@
     </Title>
     <div class="menbers">
       <div v-for="member in memberList" :key="member.id">
-        <div>{{`${member.userName} - ${member.nickName}`}}</div>
+        <div>{{`ID：${member.userName} / NickName：${member.nickName}`}}</div>
         <div><i class="el-icon-delete" title="删除" @click="del(member.id)"></i></div>
       </div>
     </div>

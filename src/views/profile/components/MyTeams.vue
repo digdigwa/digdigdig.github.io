@@ -4,9 +4,9 @@
       <!-- <el-button type="primary" @click="onAdd" size='small' round>创建</el-button> -->
     </Title>
     <div class="members">
-      <div v-for="team in teams" :key="team.teamId" class="team">
+      <div v-for="team in teams" :key="team.teamId" class="team"  @click="jump(team.teamId)">
         <div>{{ team.teamName }}</div>
-        <div><i class="el-icon-setting" title="团队管理" @click="jump(team.teamId)"></i></div>
+        <div><i class="el-icon-setting" title="团队管理"></i></div>
       </div>
     </div>
     <div class="notice" v-if="teams.length===0">目前暂不开放自定义创建团队，创建团队请微信联系yi_ying</div>
@@ -63,6 +63,7 @@ export default {
   display: flex;
   justify-content:space-between;
   font-size: 14px;
+  cursor: pointer;
   i{
     color:#ea6f5a;
     cursor: pointer;
