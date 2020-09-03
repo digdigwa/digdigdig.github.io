@@ -1,17 +1,19 @@
 <template>
   <div class="body">
-    <div class="title">家政前端技术周刊 - 第18期</div>
-    <div class="author">Shadow 发布于 2020/06/11</div>
+    <div class="title">{{info.weeklyTitle}}</div>
+    <div class="author">{{info.nickName}} 发布于 {{format}}</div>
     <ArticleCard v-for="item in list" :key="item.docId" :doc="item"/>
   </div>
 </template>
 
 <script>
-import { getDocsByWeeklyId } from '../../service/doc'
+import { getDocsByWeeklyId, getWeeklyBaseInfoById } from '../../service/weekly'
 import ArticleCard from '../../components/ArticleCard'
+import { dateFormat } from '../../utils/tools'
 export default {
   data () {
     return {
+      info: {},
       list: []
     }
   },
@@ -19,7 +21,13 @@ export default {
     ArticleCard
   },
   async created () {
+    this.info = await getWeeklyBaseInfoById(this.$route.query.weeklyId)
     this.list = await getDocsByWeeklyId(this.$route.query.weeklyId)
+  },
+  computed: {
+    format () {
+      return dateFormat('yyyy-MM-dd hh:mm:ss', new Date(this.info.createTime))
+    }
   }
 }
 </script>

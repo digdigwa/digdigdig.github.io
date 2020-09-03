@@ -19,9 +19,3 @@ export async function getDocsForPage (param) {
   const { status, data, message } = await http({ url: API.GET_DOCS_FOR_PAGE, param, method: 'post' })
   return handleResult({ status, data, message })
 }
-
-// 获取周刊对应的文章
-export async function getDocsByWeeklyId (weeklyId) {
-  const { status, data, message } = await http({ url: API.GET_WEEKLY_DOCS, param: { weeklyId }, method: 'get' })
-  return handleResult({ status, data, message })
-}

@@ -8,7 +8,7 @@
 
             <el-form ref="form" :model="form" label-width="80px" size='small' :rules="rules">
                 <el-form-item label="标题" prop="weeklyTitle">
-                    <el-input v-model="form.weeklyTitle" maxlength="100" show-word-limit placeholder="xxx技术周刊 第xxx期"></el-input>
+                    <el-input v-model="form.weeklyTitle" maxlength="100" show-word-limit placeholder="XXXX技术周刊 - 第XXX期"></el-input>
                 </el-form-item>
                 <el-form-item label="封面地址" prop="coverUrl">
                     <el-input v-model="form.coverUrl" maxlength="500" show-word-limit placeholder="请填写封面图链接"></el-input>
