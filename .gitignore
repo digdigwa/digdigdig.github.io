@@ -19,7 +19,5 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-CNAME
-_config.yml
-docs/CNAME
 docs/_config.yml
+docs/CNAME
