@@ -14,7 +14,7 @@ export default {
   props: ['weekly'],
   methods: {
     jump (weeklyId) {
-      this.$router.push({ path: '/article', query: { weeklyId } })
+      this.$router.push({ path: '/weeklyArticle', query: { weeklyId } })
     }
   },
   computed: {

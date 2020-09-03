@@ -5,7 +5,7 @@
       <div><el-button type="primary" @click="onPublish" size='small' round>发布</el-button></div>
     </div>
     <div>
-      <ArticleCard v-for="doc in list" :key="doc.docId" :doc="doc"/>
+      <ArticleCard v-for="item in list" :key="item.doc.docId" :doc="item.doc" :tags="item.tags"/>
       <div class="empty" v-if="list.length===0">没有待发布内容</div>
     </div>
     <PublishDialog v-if="dialogShow" @onClose="onDialogClose"/>

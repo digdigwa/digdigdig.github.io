@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-      <ArticleCard v-for="doc in list" :key="doc.docId" :doc="doc"/>
+      <ArticleCard v-for="item in list" :key="item.doc.docId" :doc="item.doc" :tags="item.tags"/>
       <div class="more" v-if="loadMore" @click="onLoadMore">加载更多</div>
   </div>
 </template>

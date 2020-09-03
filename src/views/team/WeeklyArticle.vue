@@ -2,7 +2,7 @@
   <div class="body">
     <div class="title">{{info.weeklyTitle}}</div>
     <div class="author">{{info.nickName}} 发布于 {{format}}</div>
-    <ArticleCard v-for="item in list" :key="item.docId" :doc="item"/>
+    <ArticleCard v-for="item in list" :key="item.doc.docId" :doc="item.doc" :tags="item.tags"/>
   </div>
 </template>
 
