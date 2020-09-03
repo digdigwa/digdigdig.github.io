@@ -1,8 +1,7 @@
 <template>
   <div>
       <div class="title">
-        <span>家政前端技术</span>
-        <!-- <i class="el-icon-setting" title="团队管理" @click="jump"></i> -->
+        <span>{{teamName}}</span>
       </div>
       <div class="content">
         <WeeklyCard v-for="item in list" :key="item.weeklyId" :weekly="item"/>
@@ -16,6 +15,7 @@ import WeeklyCard from './components/WeeklyCard'
 export default {
   data () {
     return {
+      teamName: '',
       list: []
     }
   },
@@ -23,12 +23,8 @@ export default {
     WeeklyCard
   },
   async created () {
+    this.teamName = this.$route.query.teamName
     this.list = await getWeeklyByTeamId(this.$route.query.teamId)
-  },
-  methods: {
-    // jump () {
-    //   this.$router.push({ path: '/teamManage/info' })
-    // }
   }
 }
 </script>

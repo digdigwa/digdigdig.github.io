@@ -3,7 +3,7 @@
       <img :src="weekly.coverUrl">
       <div class="content">
           <div class="title">{{weekly.weeklyTitle}}</div>
-          <div class="time">发布于 {{format}}</div>
+          <div class="time">{{weekly.nickName}} 发布于 {{format}}</div>
       </div>
   </div>
 </template>

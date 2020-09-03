@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="jump(team.teamId)">
+  <div class="card" @click="jump(team.teamId, team.teamName)">
       <img :src="team.coverUrl">
       <div class="content">
           <div class="title">{{ team.teamName}}</div>
@@ -11,8 +11,8 @@
 export default {
   props: ['team'],
   methods: {
-    jump (teamId) {
-      this.$router.push({ path: '/team', query: { teamId } })
+    jump (teamId, teamName) {
+      this.$router.push({ path: '/team', query: { teamId, teamName } })
     }
   }
 }
@@ -21,7 +21,6 @@ export default {
 <style scoped lang='scss'>
 .card{
     width: 284px;
-    // height: 230px;
     border: 3px solid #f8f8f8;
     margin: 0 5px 10px 5px;
     cursor:pointer;
