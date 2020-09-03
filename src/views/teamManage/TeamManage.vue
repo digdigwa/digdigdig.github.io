@@ -33,10 +33,11 @@ export default {
 <style scoped lang="scss">
 .body{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 20px 0;
 }
 .nav{
+    flex-shrink: 0;
     width: 200px;
     margin-right: 15px;
     font-size: 14px;
