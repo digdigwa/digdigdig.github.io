@@ -8,7 +8,20 @@
             <span @click="jump('/teamList')">所有团队</span>
         </div>
         <div class="operate">
-            <span class="avatar" v-if="uuid" @click="jump('/profile')"><div id="identicon"></div></span>
+            <span class="avatar" v-if="uuid" @click="jump('/profile')">
+              <el-popover
+                placement="bottom"
+                width="50px"
+                trigger="hover">
+                <div>
+                  <div class="avatar-item" @click="loginOut">
+                    <div class="el-icon-switch-button icon"></div>
+                    <div>退出</div>
+                  </div>
+                </div>
+                <div id="identicon" slot="reference"></div>
+              </el-popover>
+            </span>
             <span class="login" v-else @click="jump('/login')">登录</span>
             <span class="recommend" @click="recommed" v-if="uuid">推荐</span>
         </div>
@@ -22,7 +35,7 @@
 <script>
 import Recommend from './Recommend'
 import avatar from '../utils/multiavatar'
-// import cookie from '../utils/cookie'
+import { exit, getLoginInfo } from '../common/login'
 
 export default {
   data () {
@@ -36,7 +49,8 @@ export default {
   },
   mounted () {
     // this.uuid = cookie.get('d_id')
-    this.uuid = sessionStorage.getItem('dId')
+    const loginInfo = getLoginInfo()
+    this.uuid = loginInfo.id
     if (this.uuid) {
       this.$nextTick(function () {
         const iSVG = avatar.multiavatar(this.uuid)
@@ -55,6 +69,10 @@ export default {
     },
     onRecommedClose () {
       this.recommedShow = false
+    },
+    // 退出
+    loginOut () {
+      exit()
     }
   }
 }
@@ -93,17 +111,33 @@ export default {
     top: 0;
 }
 .avatar{
-  display: inline-block;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  background-color: red;
   margin-right: 25px;
   cursor:pointer;
 }
 #identicon{
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
   line-height: normal;
 }
+// 个人头像下的操作项
+.avatar-item{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #333;
+  height: 36px;
+  cursor:pointer;
+  .icon{
+    margin-right: 10px;
+    color: #ea6f5a;
+    font-size: 18px;
+  }
+}
+.avatar-item:hover{
+  background-color: #f5f5f5;
+}
+
 @mixin btn{
   display: inline-block;
   width: 88px;

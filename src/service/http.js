@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { getLoginInfo } from '../common/login'
 // 使用axios实例
 const axiosInstance = axios.create()
 // 正在请求数组变量，防止重复提交请求
@@ -81,11 +81,12 @@ async function http ({ url, param, method = 'POST', isCodeAutoHandle = false, co
   const errorCallBack = (err) => {
     return Promise.reject(err)
   }
+  const loginInfo = getLoginInfo()
   const headers = customHeaders || {
     // 'Content-Type': contentType || 'application/x-www-form-urlencoded'
     'Content-Type': contentType || 'application/json',
-    'd-token': sessionStorage.getItem('dToken') || '',
-    'd-id': sessionStorage.getItem('dId') || ''
+    'd-token': loginInfo.token,
+    'd-id': loginInfo.id
   }
   const options = Object.assign({
     headers,
