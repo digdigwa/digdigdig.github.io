@@ -31,3 +31,8 @@ export async function delMyDocById (docId) {
   const { status, data, message } = await http({ url: API.DELETE_MY_DOC_BY_ID, param: { docId }, method: 'get' })
   return handleResult({ status, data, message })
 }
+// 按文章标题模糊查找文章
+export async function docSearch (param) {
+  const { status, data, message } = await http({ url: API.DOC_SEARCH, param, method: 'post' })
+  return handleResult({ status, data, message })
+}

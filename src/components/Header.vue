@@ -2,10 +2,17 @@
   <div>
       <div class="header">
         <span class="logo" @click="jump('/about')">DDD</span>
-        <div class="nav">
-            <span @click="jump('/')">首页</span>
-            <!-- <span @click="jump('/team')">团队空间</span> -->
-            <span @click="jump('/teamList')">所有团队</span>
+        <div class="main">
+            <div class="nav">
+              <span @click="jump('/')">首页</span>
+              <!-- <span @click="jump('/team')">团队空间</span> -->
+              <span @click="jump('/teamList')">所有团队</span>
+            </div>
+            <!-- 搜索部分 -->
+             <div class="search">
+              <input type="text" placeholder="搜索" v-model="searchVal" @keyup.enter="onKeyUp"/>
+              <span class="icon" @click="onSearch"><i class="el-icon-search"/></span>
+            </div>
         </div>
         <div class="operate">
             <span class="avatar" v-if="uuid" @click="jump('/profile')">
@@ -41,6 +48,7 @@ export default {
   data () {
     return {
       uuid: '',
+      searchVal: '',
       recommedShow: false
     }
   },
@@ -62,6 +70,18 @@ export default {
     jump (path) {
       if (this.$route.path !== path) {
         this.$router.push({ path })
+      }
+    },
+    onSearch () {
+      this.$router.push({ path: '/search', query: { title: this.searchVal } })
+      if (this.$route.path === '/search') {
+        window.location.reload()
+      }
+    },
+    // 搜索框回车事件监听
+    onKeyUp (e) {
+      if (e.keyCode === 13) {
+        this.onSearch()
       }
     },
     recommed () {
@@ -92,9 +112,10 @@ export default {
     position: absolute;
     cursor: pointer;
 }
-.nav{
+.main{
     width: 900px;
     margin: 0 auto;
+    display:flex;
 }
 .nav>span{
     margin-right: 40px;
@@ -102,6 +123,48 @@ export default {
     font-weight: 500;
     cursor: pointer;
 }
+// 搜索部分
+.search{
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  input{
+    padding: 0 40px 0 20px;
+    width: 120px;
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #eee;
+    border-radius: 40px;
+    background: #eee;
+    transition: width .5s;
+  }
+  input:focus{
+    width: 240px;
+    outline: none;
+  }
+  input:focus+.icon{
+    background-color: #969696;
+    border-radius: 50%;
+    color: #fff!important;
+  }
+  .icon{
+    display: flex  !important;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    left: -38px;
+    color: #969696;
+    cursor:pointer;
+    i{
+      position: absolute;
+    }
+  }
+}
+// 右侧操作栏
 .operate{
     display: flex;
     align-items: center;

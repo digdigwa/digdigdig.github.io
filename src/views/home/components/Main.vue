@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getDocsForPage } from '../../../service/doc'
+import { getDocsForPage, docSearch } from '../../../service/doc'
 import ArticleCard from '../../../components/ArticleCard'
 export default {
   data () {
@@ -25,7 +25,14 @@ export default {
   },
   methods: {
     async getData () {
-      const res = await getDocsForPage({ curPage: this.curPage, pageSize: this.pageSize })
+      // 带查询参数则走模糊查询接口
+      const titleQuery = this.$route.query.title
+      let res = []
+      if (titleQuery) {
+        res = await docSearch({ curPage: this.curPage, pageSize: this.pageSize, title: titleQuery })
+      } else {
+        res = await getDocsForPage({ curPage: this.curPage, pageSize: this.pageSize })
+      }
       this.list = this.list.concat(res)
       if (res.length < this.pageSize) {
         this.loadMore = false

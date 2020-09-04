@@ -29,6 +29,7 @@ export const GET_NO_PUBLISH_DOCS = base + '/getNoPublishDocsByTeamId'
 export const GET_DOCS_FOR_PAGE = base + '/getDocsForPage'
 export const GET_MY_DOCS = base + '/getMyDocs'
 export const DELETE_MY_DOC_BY_ID = base + '/delMyDocById'
+export const DOC_SEARCH = base + '/docSearch'
 // 周刊相关
 export const CREATE_WEEKLY = base + '/createWeekly'
 export const GET_WEEKLY_LIST = base + '/getWeeklyByTeamId'
