@@ -6,7 +6,10 @@
           <div>
             <Tag v-for="tag in tags" :key="tag.tagId" :tag="tag"/>
           </div>
-          <div>{{`${doc.nickName} ${getDate}`}}</div>
+          <div>
+            <span>{{`${doc.nickName} ${getDate}`}}</span>
+            <i class="el-icon-delete" title="删除" v-if="canDel" @click="delDoc"></i>
+          </div>
       </div>
   </div>
 </template>
@@ -14,14 +17,38 @@
 <script>
 import Tag from './Tag'
 import { dateFormat } from '../utils/tools'
+import { delMyDocById } from '../service/doc'
 export default {
-  props: ['doc', 'tags'],
+  props: {
+    doc: Object,
+    tags: Array,
+    canDel: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     Tag
   },
   methods: {
     jump (url) {
       window.open(url)
+    },
+    delDoc () {
+      this.$confirm('删除该推荐文章, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(async () => {
+        const res = await delMyDocById(this.doc.docId)
+        if (res) {
+          this.$message({ type: 'success', message: '删除成功!' })
+          this.$emit('onDelSuccess', this.doc.docId)
+        }
+      }).catch((err) => {
+        console.error(err)
+        this.$message({ type: 'info', message: '已取消删除' })
+      })
     }
   },
   computed: {
@@ -56,6 +83,11 @@ export default {
     font-size: 12px;
     display: flex;
     justify-content: space-between;
+    i{
+      margin-left: 10px;
+      cursor: pointer;
+      color: #ea6f5a;
+    }
 }
 .footer>span{
     margin-right: 10px;

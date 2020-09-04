@@ -47,13 +47,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.title{
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    display: flex;
-    justify-content:space-between;
-}
 .members>div{
   padding: 15px 10px;
   font-size: 14px;

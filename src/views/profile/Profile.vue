@@ -2,11 +2,13 @@
     <el-tabs :tab-position="tabPosition" class="tabs">
         <el-tab-pane label="基本信息"><BaseInfo /></el-tab-pane>
         <el-tab-pane label="我的团队"><MyTeams /></el-tab-pane>
+        <el-tab-pane label="我的推荐"><MyRecommend /></el-tab-pane>
     </el-tabs>
 </template>
 <script>
 import BaseInfo from './components/BaseInfo'
 import MyTeams from './components/MyTeams'
+import MyRecommend from './components/MyRecommend'
 export default {
   data () {
     return {
@@ -15,7 +17,8 @@ export default {
   },
   components: {
     BaseInfo,
-    MyTeams
+    MyTeams,
+    MyRecommend
   }
 }
 </script>
