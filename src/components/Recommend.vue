@@ -27,7 +27,7 @@
               </el-select>
           </el-form-item>
           <el-form-item label="推荐团队">
-              <el-select v-model="form.teamId" clearable placeholder="请选择" style="width:100%">
+              <el-select v-model="form.teamId" clearable placeholder="未关联团队则直接发布到首页" style="width:100%">
                 <el-option
                   v-for="item in teams"
                   :key="item.teamId"
