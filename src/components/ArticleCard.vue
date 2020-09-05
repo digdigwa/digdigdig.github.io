@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-      <div class="title" @click="jump(doc.sourceUrl)">{{ doc.title }}</div>
+      <a class="title" :href="doc.sourceUrl" target="_blank">{{ doc.title }}</a>
       <div class="abstract">{{ doc.reason }}~</div>
       <div class="footer">
           <div>
@@ -31,9 +31,6 @@ export default {
     Tag
   },
   methods: {
-    jump (url) {
-      window.open(url)
-    },
     delDoc () {
       this.$confirm('删除该推荐文章, 是否继续?', '提示', {
         confirmButtonText: '确定',
@@ -68,8 +65,14 @@ export default {
     font-size: 18px;
     font-weight: 700;
     line-height: 1.5;
+    color: #333;
+    text-decoration: none;
+    background-color: transparent;
     cursor: pointer;
 }
+// .title:visited{
+//   color: #969696;
+// }
 .abstract{
     margin-top: 5px;
     font-size: 13px;

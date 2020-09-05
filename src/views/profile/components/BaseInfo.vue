@@ -7,7 +7,7 @@
             <div class="avatar">
               <div id="avatarId"></div>
               <el-button type="success" round size="mini" @click="changeAvatar">
-                {{ generateAvatarStatus?'确定':'换一个'}}
+                {{ generateAvatarStatus?'咔嚓':'换一个'}}
               </el-button>
               <el-input v-model="form.avatar" style="display:none"></el-input>
             </div>
