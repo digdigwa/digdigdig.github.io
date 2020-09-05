@@ -16,16 +16,15 @@
         </div>
         <div class="operate">
             <span class="avatar" v-if="uuid" @click="jump('/profile')">
-              <el-popover
-                placement="bottom"
-                width="50px"
-                trigger="hover">
+              <el-popover placement="bottom" width="50px" trigger="hover">
                 <div>
+                  <!-- 列表项 -->
                   <div class="avatar-item" @click="loginOut">
                     <div class="el-icon-switch-button icon"></div>
                     <div>退出</div>
                   </div>
                 </div>
+                <!-- 头像 -->
                 <div id="identicon" slot="reference"></div>
               </el-popover>
             </span>
@@ -61,7 +60,7 @@ export default {
     this.uuid = loginInfo.id
     if (this.uuid) {
       this.$nextTick(function () {
-        const iSVG = avatar.multiavatar(this.uuid)
+        const iSVG = avatar.multiavatar(loginInfo.avatar)
         document.getElementById('identicon').innerHTML = iSVG
       })
     }

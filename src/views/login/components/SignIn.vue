@@ -47,7 +47,7 @@ export default {
             // cookie.set('d_token', res.token, { domain: 'digdigdig.vip' })
             // cookie.set('d_id', res.id, { domain: 'digdigdig.vip' })
             // 设置登录信息在sessionStorage中
-            setLoginInfo({ token: res.token, id: res.id })
+            setLoginInfo({ token: res.token, id: res.id, avatar: res.avatar })
 
             this.$refs.loginForm.resetFields()
             window.location.href = location.origin

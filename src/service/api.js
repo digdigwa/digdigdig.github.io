@@ -1,8 +1,10 @@
 
 // const base = '/node/i'
-const base = '//zhuhao.ink/node/i'
-// const base = 'http://local.djtest.cn:10001/node/i'
-
+let base = '//zhuhao.ink/node/i'
+// 开发环境
+if (process.env.NODE_ENV === 'development') {
+  base = 'http://local.djtest.cn:10001/node/i'
+}
 // 登录注册相关
 export const CHECK_NICK_NAME = base + '/checkNickName'
 export const CHECK_USER_NAME = base + '/checkUserName'
