@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/home/Home.vue'
 import Search from '../views/search/Search.vue'
+import TagHome from '../views/tag/Home.vue'
+import Tag from '../views/tag/Tag.vue'
 import Login from '../views/login/Login.vue'
 import Profile from '../views/profile/Profile.vue'
 import Team from '../views/team/Team.vue'
@@ -15,41 +17,15 @@ import WeeklyArticle from '../views/team/WeeklyArticle.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/search',
-    name: 'Search',
-    component: Search
-  },
-  {
-    path: '/team',
-    name: 'Team',
-    component: Team
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/weeklyArticle',
-    name: 'weeklyArticle',
-    component: WeeklyArticle
-  },
-  {
-    path: '/teamList',
-    name: 'TeamList',
-    component: TeamList
-  },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/search', name: 'Search', component: Search },
+  { path: '/tags', name: 'TagHome', component: TagHome },
+  { path: '/tag', name: 'Tag', component: Tag },
+  { path: '/team', name: 'Team', component: Team },
+  { path: '/profile', name: 'Profile', component: Profile },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/weeklyArticle', name: 'weeklyArticle', component: WeeklyArticle },
+  { path: '/teamList', name: 'TeamList', component: TeamList },
   {
     path: '/teamManage',
     name: 'TeamManage',

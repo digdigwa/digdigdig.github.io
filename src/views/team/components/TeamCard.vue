@@ -26,6 +26,7 @@ export default {
     cursor:pointer;
     img{
         width: 284px;
+        height: 180px;
     }
     .content{
         padding: 0 10px 10px 10px;

@@ -25,6 +25,8 @@ export const GET_MEMBERS = base + '/getMembers'
 export const DELETE_MEMBER = base + '/deleteMember'
 // 标签相关
 export const GET_ALL_TAGS = base + '/getAllTags'
+export const GET_ALL_TAGS_AND_COUNT = base + '/getAllTagsAndCount'
+export const GET_DOCS_BY_TAG_ID = base + '/getDocsByTagId'
 // 文章相关
 export const CREATE_DOC = base + '/createDoc'
 export const GET_NO_PUBLISH_DOCS = base + '/getNoPublishDocsByTeamId'

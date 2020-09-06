@@ -6,7 +6,8 @@
             <div class="nav">
               <span @click="jump('/')">首页</span>
               <!-- <span @click="jump('/team')">团队空间</span> -->
-              <span @click="jump('/teamList')">所有团队</span>
+              <span @click="jump('/teamList')">团队</span>
+              <span @click="jump('/tags')">标签</span>
             </div>
             <!-- 搜索部分 -->
              <div class="search">
