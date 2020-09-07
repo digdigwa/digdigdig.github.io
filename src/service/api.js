@@ -1,6 +1,6 @@
 
 // const base = '/node/i'
-let base = '//zhuhao.ink/node/i'
+let base = 'https://zhuhao.ink/node/i'
 // 开发环境
 if (process.env.NODE_ENV === 'development') {
   base = 'http://local.djtest.cn:10001/node/i'
