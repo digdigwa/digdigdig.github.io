@@ -3,7 +3,7 @@
       <a class="title" :href="doc.sourceUrl" target="_blank">{{ doc.title }}</a>
       <div class="abstract">{{ doc.reason }}~</div>
       <div class="footer">
-          <div>
+          <div class="tags">
             <Tag v-for="tag in tags" :key="tag.tagId" :tag="tag"/>
           </div>
           <div>
@@ -94,5 +94,12 @@ export default {
 }
 .footer>span{
     margin-right: 10px;
+}
+// 标签相关
+.tags{
+  display: flex;
+}
+.tags>div{
+  margin-right: 10px;
 }
 </style>
