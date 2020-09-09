@@ -2,7 +2,7 @@
   <div class="body">
       <div class="title">为什么要做这个网站？</div>
 
-      <div class="layout__panel layout__panel--preview" style="width: 514px; font-size: 15px;"><div class="gutter" style="left: 0px;"><!----></div> <div class="preview"><div class="preview__inner-1"><div class="preview__inner-2 markdown_views prism-atom-one-dark" style="padding: 10px 16px 110px;"><div class="cl-preview-section"><h3><a id="_1"></a>主要想解决如下几个痛点</h3>
+      <div class="layout__panel layout__panel--preview" style="font-size: 15px;"><div class="gutter" style="left: 0px;"><!----></div> <div class="preview"><div class="preview__inner-1"><div class="preview__inner-2 markdown_views prism-atom-one-dark" style="padding: 10px 16px 110px;"><div class="cl-preview-section"><h3><a id="_1"></a>主要想解决如下几个痛点</h3>
       </div><div class="cl-preview-section"><ul>
       <li>打破内网壁垒，提供一个公共的场所分享有意思、有价值的文章</li>
       <li>解决常规Markdown技术周报的关键字查询困难问题</li>
