@@ -29,7 +29,7 @@
       </div><div class="cl-preview-section"><h3><a id="_24"></a>关于域名</h3>
       </div><div class="cl-preview-section"><p>一次性买了10年，希望十年后还在！~ 挖挖挖… 哇哇哇…</p>
       </div><div class="cl-preview-section"><h3><a id="_28"></a>其它</h3>
-      </div><div class="cl-preview-section"><p>可在chrome应用商店搜索DDD，下载一键推荐插件。或者点击<a href="http://digdigdig.vip/static/ddd-plugin.zip">这里</a>下载，在chrome的扩展程序中，点击【加载已解压的扩展程序】导入插件使用</p>
+      </div><div class="cl-preview-section"><p>可在chrome应用商店搜索digdigdig，下载一键推荐插件。或者点击<a href="http://digdigdig.vip/static/ddd-plugin.zip">这里</a>下载，在chrome的扩展程序中，点击【加载已解压的扩展程序】导入插件使用</p>
       </div></div></div> <!----></div></div>
 
   </div>
